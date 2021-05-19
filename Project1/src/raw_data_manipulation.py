@@ -39,6 +39,11 @@ def read_data(raw_datapath):
     UKMet_df.to_csv('../data/processed/UKMet_ALL_FCdates.csv', index=False)
     return ECMWF_df, UKMet_df
 
+def format_colname(colname, model):
+    if ('M' in colname) or colname == 'CNTRLFC':
+        return model + colname
+    else:
+        return colname
 
 if __name__ == '__main__':
     datapath = '../data/raw/'
@@ -48,13 +53,11 @@ if __name__ == '__main__':
     steps = np.arange(24, 24*7, 24)
     for step in steps:
         UKMet_df_step = UKMet_df.loc[UKMet_df['step'] == step]
-        ECMWF_df_step = UKMet_df.loc[UKMet_df['step'] == step]
+        ECMWF_df_step = ECMWF_df.loc[ECMWF_df['step'] == step]
+        ECMWF_df_step.columns = [format_colname(x, model='ECMWF_') for x in ECMWF_df_step.columns]
+        UKMet_df_step.columns = [format_colname(x, model='UKMet_') for x in UKMet_df_step.columns]
+
         merged_df = ECMWF_df_step.merge(UKMet_df_step, how='inner',
                                         left_on=['FCdate', 'lat', 'lon', 'STAT_ID', 'step', 'VT', 'OBS'],
-                                        right_on=['FCdate', 'lat', 'lon', 'STAT_ID', 'step', 'VT', 'OBS'],
-                                        suffixes=('_ECMWF', '_UKMet'))
+                                        right_on=['FCdate', 'lat', 'lon', 'STAT_ID', 'step', 'VT', 'OBS'])
         merged_df.to_csv(f'../data/processed/merged_step_{step}hrs.txt', index=False)
-
-    ECMWF_df.merge(UKMet_df, how='outer').columns
-    pd.read_csv(UKMetfiles[0])
-    pd.merge
