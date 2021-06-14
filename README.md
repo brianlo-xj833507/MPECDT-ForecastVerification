@@ -13,11 +13,13 @@ The easiest way to access all the files is by cloning this repository to your co
 Dataset manipulation with Xarray and compute error metrics with xskillscore
 
 http://xarray.pydata.org/en/stable/
+
 https://xskillscore.readthedocs.io/en/stable/api.html
 
 ### R
 
 SpatialVx: https://ral.ucar.edu/projects/icp/SpatialVx/
+
 verification: http://cran.r-project.org/package=verification
 
 ### Matlab
