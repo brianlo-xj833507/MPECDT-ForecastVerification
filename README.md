@@ -17,4 +17,7 @@ https://xskillscore.readthedocs.io/en/stable/api.html
 
 ### R
 
+SpatialVx: https://ral.ucar.edu/projects/icp/SpatialVx/
+verification: http://cran.r-project.org/package=verification
+
 ### Matlab
