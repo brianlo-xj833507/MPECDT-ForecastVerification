@@ -18,5 +18,5 @@ if __name__ == '__main__':
             leadtime_subset.loc[(leadtime_subset['Name'] == station_name)]['GFS'].plot(linewidth=0.5)
             plt.legend()
             plt.title(f'{station_name} | Leadtime: {lead_time}h', loc='left')
-            plt.savefig(f'../plots/{station_name}_{lead_time}.pdf')
+            plt.savefig(f'../plots/01_{station_name}_{lead_time}.pdf')
             plt.clf()
