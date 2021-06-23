@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 def read_data():
-    ds_list = []
+    df_all = pd.DataFrame()
     projections = [24, 48, 72, 96, 120]
     for proj in projections:
         datapath = f'../data/raw/Project 2_data {proj}h.txt'
@@ -16,8 +16,7 @@ def read_data():
         df['Date'] = df['Date'].astype(str).str[0:8]
         df['Date'] = pd.to_datetime(df['Date'], format="%Y%m%d")
         df.mask(df == -99, inplace=True)
-        ds_list.append(df)
-    df = pd.concat(ds_list, axis=0)
+        df_all = pd.concat([df_all, df], axis=0)
 
     # Station Information
     station_info = pd.DataFrame(np.array(
@@ -31,9 +30,9 @@ def read_data():
     new_dtypes = {"StationID": int, "Name": 'string', "Lat": np.float32, "Lon": np.float32}
     station_info = station_info.astype(new_dtypes)
 
-    df = pd.merge(df, station_info, left_on='StationID', right_on='StationID')
-    df = df.set_index(["Date"])
-    return df
+    df_all = pd.merge(df_all, station_info, left_on='StationID', right_on='StationID')
+    df_all = df_all.set_index(["Date"])
+    return df_all
 
 
 if __name__ == '__main__':
