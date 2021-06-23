@@ -136,3 +136,9 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+=======
+*pycache*
+*.pdf
+*pyc
+*.idea*
+>>>>>>> a2bcfc53ce4e33413c7d4f3a88e1419f04894849
