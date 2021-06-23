@@ -27,7 +27,7 @@ def get_data_as_pandas_df(projections=None, bins=None):
     for proj in projections:
         df = pd.read_table(datapath.format(proj=proj))
         df['Projection'] = proj
-        df = df.set_index(['Date', 'Projection'])
+        df = df.set_index(['Date'])
         ds_list.append(df)
     df = pd.concat(ds_list, axis=0)
 
@@ -57,5 +57,6 @@ def get_xarray_data(projection, stationdid):
 
 if __name__ == "__main__":
     df = get_xarray_data('24', '48327')
+    df = get_data_as_pandas_df()
 
-    print(df)
+    print(df.index)

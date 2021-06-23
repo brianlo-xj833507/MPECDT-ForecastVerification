@@ -51,5 +51,5 @@ if __name__ == "__main__":
             confusion_matrix_plot(y_true=y_true, y_pred=y_pred, ax=axis, title=model, xlabel='Forecast',
                                   ylabel='Observation')
 
-        # plt.show()
+        #plt.show()
         plt.savefig('../Plots/confusion_matrix_{}h.pdf'.format(proj), bbox_inches='tight')
