@@ -1,3 +1,5 @@
+"""Script to plot all time series for visualisation"""
+
 import matplotlib.pyplot as plt
 
 from data_ingestion import read_data

@@ -1,3 +1,5 @@
+"""Plots all station locations on a map"""
+
 import matplotlib.pyplot as plt
 from matplotlib.transforms import offset_copy
 
@@ -57,7 +59,7 @@ def main():
                  verticalalignment='top', horizontalalignment='left', fontsize=8,
                  transform=text_transform,
                  bbox=dict(facecolor='white', alpha=0.7, boxstyle='round'))
-    plt.savefig('../plots/station_map.pdf')
+    plt.savefig('../plots/00_station_map.pdf')
 
 
 if __name__ == '__main__':
