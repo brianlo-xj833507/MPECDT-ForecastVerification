@@ -104,7 +104,7 @@ def multiplot(basepath, models, vmin=-1, vmax=1):
     # list of lead times
     lead_times = ['24', '48', '72', '96', '120']
 
-    fig, ax = plt.subplots(7, 5, figsize=(10, 10))
+    fig, ax = plt.subplots(7, 5, figsize=(5, 8))
 
     for i, station in enumerate(stations):
         for j, leadtime in enumerate(lead_times):
@@ -120,8 +120,7 @@ def multiplot(basepath, models, vmin=-1, vmax=1):
                 axis.set_title(leadtime)
             if j == 0:
                 axis.set_ylabel(station, rotation=45, loc="top")
-
-    fig.colorbar(im, ax=ax.ravel().tolist(), orientation="horizontal", shrink=0.7)
+    fig.colorbar(im, ax=ax.ravel().tolist(), orientation="horizontal", shrink=0.7, pad = 0.03)
 
 
 def explanatory_plot():
