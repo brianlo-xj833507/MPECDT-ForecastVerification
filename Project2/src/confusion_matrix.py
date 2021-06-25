@@ -38,7 +38,7 @@ def raw_confusion_matrix_plot(data, ax, title='Confusion Matrix', xlabel='Predic
 if __name__ == "__main__":
 
     # Makes two plots for the confusion matrix by compounding over 24 & 48 hour predictions and 72 & 96 & 120
-    projections = [[24, 48], [72, 96, 120]]
+    projections = [[24, 48], [72, 96, 120], [24, 48, 72, 96, 120]]
 
     for proj in projections:
         df = get_data_as_pandas_df(projections=proj)
@@ -52,4 +52,4 @@ if __name__ == "__main__":
                                   ylabel='Observation')
 
         #plt.show()
-        plt.savefig('../Plots/confusion_matrix_{}h.pdf'.format(proj), bbox_inches='tight')
+        plt.savefig('../Plots/confusion_matrix_{}h.png'.format(proj), bbox_inches='tight')

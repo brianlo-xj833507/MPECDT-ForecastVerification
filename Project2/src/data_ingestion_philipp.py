@@ -15,7 +15,7 @@ def get_data_as_pandas_df(projections=None, bins=None):
     :rtype: pandas dataframe
     """
     if bins is None:
-        bins = [0.0, 1, 30, 1000]
+        bins = [0.0, 1, 20, 1000]
     if projections is None:
         projections = [24, 48, 72, 96, 120]
 
