@@ -18,6 +18,9 @@ def read_data():
         df.mask(df == -99, inplace=True)
         df_all = pd.concat([df_all, df], axis=0)
 
+    # Calculate "Ensemble" Mean
+    df_all['Ens'] = df_all[['GSM0p50', 'GFS', 'IFS']].mean(axis=1)
+
     # Station Information
     station_info = pd.DataFrame(np.array(
         [[48327, "Chiang Mai", 18.783, 98.983],
@@ -36,5 +39,6 @@ def read_data():
 
 
 if __name__ == '__main__':
+    pd.set_option('display.max_columns', None)
     df = read_data()
     print(df)
